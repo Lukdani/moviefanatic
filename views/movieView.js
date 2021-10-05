@@ -106,8 +106,7 @@ class MovieView {
     movieElement.appendChild(movieDescription);
 
     if (movie.ratedR) {
-      const ratedR = this.createElement("img", ["fas", "fa-ban"], null);
-      ratedR.src = "/" < svg;
+      const ratedR = this.createElement("i", ["fas", "fa-ban"], null);
       movieElement.appendChild(ratedR);
     }
 
