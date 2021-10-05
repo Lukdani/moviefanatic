@@ -1,14 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Vært: localhost:8889
--- Genereringstid: 05. 10 2021 kl. 07:30:23
--- Serverversion: 5.7.32
--- PHP-version: 7.4.12
+-- Vært: 127.0.0.1:3306
+-- Genereringstid: 05. 10 2021 kl. 08:35:45
+-- Serverversion: 5.7.31
+-- PHP-version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `moviefanatic`
@@ -20,11 +27,13 @@ SET time_zone = "+00:00";
 -- Struktur-dump for tabellen `actors`
 --
 
-CREATE TABLE `actors` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `actors`;
+CREATE TABLE IF NOT EXISTS `actors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_danish_ci NOT NULL,
-  `birthYear` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+  `birthYear` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 
 --
 -- Data dump for tabellen `actors`
@@ -41,56 +50,32 @@ INSERT INTO `actors` (`id`, `name`, `birthYear`) VALUES
 -- Struktur-dump for tabellen `movies`
 --
 
-CREATE TABLE `movies` (
+DROP TABLE IF EXISTS `movies`;
+CREATE TABLE IF NOT EXISTS `movies` (
   `movieName` varchar(100) COLLATE utf8_danish_ci NOT NULL,
   `movieDescription` text COLLATE utf8_danish_ci,
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `rating` int(11) DEFAULT NULL,
   `actors` text COLLATE utf8_danish_ci,
   `createdDate` datetime DEFAULT NULL,
   `instructor` varchar(100) COLLATE utf8_danish_ci DEFAULT NULL,
   `ratings` set('Jens Hansen') COLLATE utf8_danish_ci DEFAULT NULL,
   `hasSequal` tinyint(1) DEFAULT NULL,
-  `owner` varchar(100) COLLATE utf8_danish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+  `owner` varchar(100) COLLATE utf8_danish_ci DEFAULT NULL,
+  `movieImg` varchar(250) COLLATE utf8_danish_ci NOT NULL DEFAULT 'https://images.unsplash.com/photo-1623510848605-3cf32d03059e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 
 --
 -- Data dump for tabellen `movies`
 --
 
-INSERT INTO `movies` (`movieName`, `movieDescription`, `id`, `rating`, `actors`, `createdDate`, `instructor`, `ratings`, `hasSequal`, `owner`) VALUES
-('Gladiator', 'Are you not entertained?', 35, NULL, 'Brad Pitt', '2021-09-29 00:00:00', 'Helly', NULL, NULL, 'warnerBros'),
-('Gladiator', '<p>Test</p>', 44, NULL, NULL, '2021-10-21 00:00:00', '', NULL, NULL, 'warnerBros'),
-('Gladiator', '<p>Test movie</p>', 45, NULL, 'Brad Pitt,George Clooney,George Clooney', '2021-10-13 00:00:00', '', NULL, NULL, 'warnerBros');
+INSERT INTO `movies` (`movieName`, `movieDescription`, `id`, `rating`, `actors`, `createdDate`, `instructor`, `ratings`, `hasSequal`, `owner`, `movieImg`) VALUES
+('Gladiator', 'Are you not entertained?', 35, NULL, 'Brad Pitt', '2021-09-29 00:00:00', 'Helly', NULL, NULL, 'warnerBros', 'https://images.unsplash.com/photo-1623510848605-3cf32d03059e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80'),
+('Gladiator', '<p>Test</p>', 44, NULL, NULL, '2021-10-21 00:00:00', '', NULL, NULL, 'warnerBros', 'https://images.unsplash.com/photo-1623510848605-3cf32d03059e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80'),
+('Gladiator', '<p>Test movie</p>', 45, NULL, 'Brad Pitt,George Clooney,George Clooney', '2021-10-13 00:00:00', '', NULL, NULL, 'warnerBros', 'https://images.unsplash.com/photo-1623510848605-3cf32d03059e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80');
+COMMIT;
 
---
--- Begrænsninger for dumpede tabeller
---
-
---
--- Indeks for tabel `actors`
---
-ALTER TABLE `actors`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks for tabel `movies`
---
-ALTER TABLE `movies`
-  ADD PRIMARY KEY (`id`);
-
---
--- Brug ikke AUTO_INCREMENT for slettede tabeller
---
-
---
--- Tilføj AUTO_INCREMENT i tabel `actors`
---
-ALTER TABLE `actors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Tilføj AUTO_INCREMENT i tabel `movies`
---
-ALTER TABLE `movies`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
