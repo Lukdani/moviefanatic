@@ -4,10 +4,20 @@ class MovieController {
   constructor(movieModel, movieView) {
     this.movieModel = movieModel;
     this.movieView = movieView;
+
     this.getMovies();
   }
 
+  async getActors() {
+    let result = await makeRequest("GET", "/moviefanatic/api/getActors.php");
+    if (result) {
+      const parsedResult = JSON.parse(result);
+      this.movieView.addActors(parsedResult);
+    }
+  }
+
   async getMovies() {
+    this.getActors();
     let result = await makeRequest("GET", "/moviefanatic/api/getMovies.php");
     if (result) {
       const parsedResult = JSON.parse(result);
