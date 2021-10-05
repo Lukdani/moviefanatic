@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="createdDate">Creation date</label>
-                                    <input value=type="date" name="data[createdDate]" id="createdDate"
+                                    <input type="date" name="data[createdDate]" id="createdDate"
                                         placeholder="Creation date" class="form-control" />
                                 </div>
                             </div>
@@ -89,4 +89,7 @@
         </form>
     </div>
 </div>
+<script>
+document.querySelector("#createdDate").valueAsDate = new Date();
+</script>
 </div>
