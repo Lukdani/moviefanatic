@@ -1,0 +1,25 @@
+@import "./bootstrap.scss";
+
+.movieList-item-container {
+  padding: 2rem 0;
+  &:not(:last-of-type) {
+    padding-right: 2rem;
+  }
+}
+
+.movieList-item {
+  background-color: $custom-primary-opacity;
+
+  padding: 2rem;
+  border-radius: $custom-borderRadius;
+  box-shadow: $custom-boxShadow;
+}
+
+#movies {
+  justify-content: flex-start;
+}
+
+.movie-header {
+  font-family: $font-family-header;
+  font-size: 2rem;
+}

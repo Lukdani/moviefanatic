@@ -1,0 +1,25 @@
+// DENNE FIL ER KUN TIL BOOTSTRAP RETTELSER
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$custom-secondary: #5bc0be;
+$custom-primary: #f24333;
+$custom-primary-opacity: rgba(242, 67, 51, 0.8);
+$custom-dark: #252323;
+
+$font-family-header: "Amatic SC", cursive;
+$font-family: "Roboto", sans-serif;
+
+$custom-borderRadius: 1rem;
+$custom-boxShadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+
+$custom-colors: (
+  "primary": $custom-primary,
+  "secondary": $custom-secondary,
+  "dark": $custom-dark,
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
