@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+=======
+  <component name="PublishConfigData" serverName="PHP server" remoteFilesAllowedToDisappearOnAutoupload="false">
+>>>>>>> origin/master
     <serverData>
       <paths name="PHP server">
         <serverdata>
           <mappings>
+<<<<<<< HEAD
             <mapping local="$PROJECT_DIR$" web="/" />
+=======
+            <mapping local="$PROJECT_DIR$" web="/moviefanatic" />
+>>>>>>> origin/master
           </mappings>
         </serverdata>
       </paths>
