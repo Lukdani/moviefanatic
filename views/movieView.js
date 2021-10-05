@@ -36,6 +36,13 @@ class MovieView {
       ["movieList-item"],
       `movie-${movie.id}`
     );
+
+    movieContainer.appendChild(movieElement);
+
+    const movieImg = this.createElement("image", ["movie-img"], null);
+    movieImg.src = movie.movieImg;
+
+    movieElement.appendChild(movieImg);
     movieContainer.appendChild(movieElement);
 
     const movieHeader = this.createElement("h3", ["movie-header"], null);
