@@ -6,8 +6,8 @@
             <div class="modal-content bg-dark">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Add movie</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="close btn btn-secondary" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -20,8 +20,8 @@
                                         class="form-control" />
                                 </div>
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="createdDate">Date</label>
-                                    <input type="date" name="data[createdDate]" id="createdDate"
+                                    <label for="createdDate">Creation date</label>
+                                    <input value=type="date" name="data[createdDate]" id="createdDate"
                                         placeholder="Creation date" class="form-control" />
                                 </div>
                             </div>
@@ -46,9 +46,9 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="instructor">Instructor</label>
-                                    <input type="text" name="data[instructor]" id="instructor"
-                                        placeholder="Movie instructor" class="form-control" />
+                                    <label for="director">Director</label>
+                                    <input type="text" name="data[director]" id="director" placeholder="Movie director"
+                                        class="form-control" />
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="owner">Studio</label>
@@ -62,10 +62,10 @@
                             <div class="row">
                                 <div class="form-group col-12 col-md-6">
                                     <div class="form-check">
-                                        <input name="data[hasSequel]" class="form-check-input" type="checkbox" value=""
-                                            id="hasSequel">
-                                        <label class="form-check-label" for="hasSequel">
-                                            Has sequel
+                                        <input name="data[ratedR]" class="form-check-input" type="checkbox" value=""
+                                            id="ratedR">
+                                        <label class="form-check-label" for="ratedR">
+                                            Rated R
                                         </label>
                                     </div>
 

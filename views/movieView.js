@@ -105,6 +105,12 @@ class MovieView {
     movieDescription.innerHTML = movie.movieDescription;
     movieElement.appendChild(movieDescription);
 
+    if (movie.ratedR) {
+      const ratedR = this.createElement("img", ["fas", "fa-ban"], null);
+      ratedR.src = "/" < svg;
+      movieElement.appendChild(ratedR);
+    }
+
     const deleteButton = this.createElement(
       "button",
       ["movie-deleteButton", "btn-danger", "btn"],
