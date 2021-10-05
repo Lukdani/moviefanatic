@@ -7,17 +7,23 @@ if (!empty($_POST["data"])) {
     if (!empty($data["actors"])) {
         $implodedActors = implode(',', $data["actors"]);
     }
+
+    $ratedRBool = 0;
+    if ($data["ratedR"] == true)
+    {
+$ratedRBool = 1;
+    }
     
-    $sql = "INSERT INTO movies (movieName, movieDescription, createdDate, instructor, actors, owner, hasSequal, movieImg ) VALUES(:movieName, :movieDescription, :createdDate, :instructor, :actors, :owner, :hasSequal, :movieImg)";
+    $sql = "INSERT INTO movies (movieName, movieDescription, createdDate, director, actors, owner, ratedR, movieImg ) VALUES(:movieName, :movieDescription, :createdDate, :director, :actors, :owner, :ratedR, :movieImg)";
     
     $bind = [
         ":movieName" => $data["movieName"], 
         ":movieDescription" => $data["movieDescription"], 
         ":createdDate" => $data["createdDate"], 
-        ":instructor" => $data["instructor"], 
+        ":director" => $data["director"], 
         ":actors" => $implodedActors, 
         ":owner" => $data["owner"],
-        ":hasSequal" => $data["hasSequal"],
+        ":ratedR" => $ratedRBool,
         ":movieImg" => $data["movieImg"]
     ];
     
