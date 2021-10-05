@@ -90,6 +90,6 @@
     </div>
 </div>
 <script>
-document.querySelector("#createdDate").value = new Date();
+document.querySelector("#createdDate").valueAsDate = new Date();
 </script>
 </div>
