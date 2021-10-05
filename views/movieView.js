@@ -39,8 +39,8 @@ class MovieView {
 
     movieContainer.appendChild(movieElement);
 
-    const movieImg = this.createElement("image", ["movie-img"], null);
-    movieImg.src = movie.movieImg;
+    const movieImg = this.createElement("img", ["movie-img"], null);
+    movieImg.setAttribute("src", movie.movieImg);
 
     movieElement.appendChild(movieImg);
     movieContainer.appendChild(movieElement);
