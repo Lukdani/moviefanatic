@@ -106,7 +106,8 @@ class MovieView {
     movieElement.appendChild(movieDescription);
 
     if (movie.ratedR) {
-      const ratedR = this.createElement("i", ["fas", "fa-ban"], null);
+      const ratedR = this.createElement("p", ["movie-item-ratedR"], null);
+      ratedR.textContent = "18+";
       movieElement.appendChild(ratedR);
     }
 
