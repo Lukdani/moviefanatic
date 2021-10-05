@@ -70,6 +70,11 @@
                                     </div>
 
                                 </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="movieImg">Movie URL</label>
+                                    <input type="text" name="data[movieImg]" id="movieImg" placeholder="Image URL"
+                                        class="form-control" />
+                                </div>
                             </div>
                         </div>
                     </div>
