@@ -23,6 +23,14 @@ class MovieView {
     this.actors = actors;
   }
 
+  addDirectors(directors) {
+    this.directors = directors;
+  }
+
+  addStudios(studios) {
+    this.studios = studios;
+  }
+
   addMovie(movie) {
     const movieContainer = createElement(
       "div",
@@ -46,33 +54,42 @@ class MovieView {
     movieElement.appendChild(movieImg);
     movieContainer.appendChild(movieElement);
 
+    const movieDetails = createElement("div", ["movie-details"], null);
+    movieElement.appendChild(movieDetails);
+
     const movieHeader = createElement("h3", ["movie-header"], null);
     movieHeader.textContent = `${movie.movieName} ${
       movie.createdDate ? `(${formatDate(movie.createdDate)})` : ""
     }`;
 
-    movieElement.appendChild(movieHeader);
+    movieDetails.appendChild(movieHeader);
 
-    let instructorStudioString = "";
-    if (movie.instructor) {
-      instructorStudioString = movie.instructor;
+    let directorStudioString = "";
+    if (movie.director) {
+      const director = this.directors?.find(
+        (directorItem) => directorItem.id === movie.director
+      );
+      directorStudioString = director?.name;
     }
 
-    if (movie.owner) {
-      instructorStudioString += `${
-        movie.instructor ? `, ${movie.owner}` : movie.owner
+    if (movie.studio) {
+      const studioName = this.studios?.find(
+        (studioItem) => studioItem.id === movie.studio
+      )?.name;
+      directorStudioString += `${
+        movie.director ? `, ${studioName}` : studioName
       }`;
     }
 
-    if (instructorStudioString) {
+    if (directorStudioString) {
       const instructorStudioElement = createElement(
         "h4",
         ["movie-instructor"],
         null
       );
-      instructorStudioElement.textContent = instructorStudioString;
+      instructorStudioElement.textContent = directorStudioString;
 
-      movieElement.appendChild(instructorStudioElement);
+      movieDetails.appendChild(instructorStudioElement);
     }
 
     if (movie.actors) {
@@ -91,7 +108,7 @@ class MovieView {
           actorsContainer.appendChild(actorElement);
         });
 
-        movieElement.appendChild(actorsContainer);
+        movieDetails.appendChild(actorsContainer);
       } catch (err) {
         console.log(err);
       }
@@ -99,12 +116,12 @@ class MovieView {
 
     const movieDescription = createElement("div", ["movie-description"], null);
     movieDescription.innerHTML = movie.movieDescription;
-    movieElement.appendChild(movieDescription);
+    movieDetails.appendChild(movieDescription);
 
     if (movie.ratedR) {
       const ratedR = createElement("p", ["movie-item-ratedR"], null);
       ratedR.textContent = "18+";
-      movieElement.appendChild(ratedR);
+      movieDetails.appendChild(ratedR);
     }
 
     const deleteButton = createElement(
@@ -114,7 +131,7 @@ class MovieView {
     );
     deleteButton.setAttribute("data-id", movie.id);
     deleteButton.textContent = "Delete";
-    movieElement.appendChild(deleteButton);
+    movieDetails.appendChild(deleteButton);
   }
 
   bindDeleteButton = (callback) => {

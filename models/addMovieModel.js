@@ -1,6 +1,6 @@
 class AddMovieModel {
   constructor() {
-    this.data = { actors: [], directors: [] };
+    this.data = { actors: [], directors: [], studios: [] };
   }
 
   getActors = () => {
@@ -9,6 +9,10 @@ class AddMovieModel {
 
   getDirectors = () => {
     return this.data.directors;
+  };
+
+  getStudios = () => {
+    return this.data.studios;
   };
 }
 

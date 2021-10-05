@@ -52,10 +52,8 @@
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="owner">Studio</label>
-                                    <select id="ownerSelect" name="data[owner]" id="owner" class="form-select"
+                                    <select id="studioSelect" name="data[studio]" class="form-select"
                                         aria-label="multiple select example">
-                                        <option selected value="warnerBros">Warner Bros</option>
-                                        <option value="universal">Universal</option>
                                     </select>
                                 </div>
                             </div>

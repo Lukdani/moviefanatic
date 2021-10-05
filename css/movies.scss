@@ -2,15 +2,19 @@
 
 .movieList-item-container {
   padding: 2rem 0;
+  animation: fadeIn 0.5s;
   &:not(:last-of-type) {
     padding-right: 2rem;
   }
 }
 
+.movie-details {
+  padding: 1rem;
+}
+
 .movieList-item {
   background-color: $custom-primary-opacity;
 
-  padding: 2rem;
   border-radius: $custom-borderRadius;
   box-shadow: $custom-boxShadow;
 }
@@ -22,4 +26,23 @@
 .movie-header {
   font-family: $font-family-header;
   font-size: 2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

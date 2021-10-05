@@ -11,10 +11,10 @@ if (!empty($_POST["data"])) {
     $ratedRBool = 0;
     if ($data["ratedR"] == true)
     {
-$ratedRBool = 1;
+        $ratedRBool = 1;
     }
     
-    $sql = "INSERT INTO movies (movieName, movieDescription, createdDate, director, actors, owner, ratedR, movieImg ) VALUES(:movieName, :movieDescription, :createdDate, :director, :actors, :owner, :ratedR, :movieImg)";
+    $sql = "INSERT INTO movies (movieName, movieDescription, createdDate, director, actors, studio, ratedR, movieImg ) VALUES(:movieName, :movieDescription, :createdDate, :director, :actors, :studio, :ratedR, :movieImg)";
     
     $bind = [
         ":movieName" => $data["movieName"], 
@@ -22,7 +22,7 @@ $ratedRBool = 1;
         ":createdDate" => $data["createdDate"], 
         ":director" => $data["director"], 
         ":actors" => $implodedActors, 
-        ":owner" => $data["owner"],
+        ":studio" => $data["studio"],
         ":ratedR" => $ratedRBool,
         ":movieImg" => $data["movieImg"]
     ];
