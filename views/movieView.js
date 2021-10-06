@@ -1,5 +1,6 @@
 import createElement from "../utils/createElement.js";
 import { formatDate } from "../utils/formatDate.js";
+import tryJsonParse from "../utils/tryJsonParse.js";
 
 class MovieView {
   constructor(containerElement) {
@@ -43,7 +44,7 @@ class MovieView {
     const movieElement = createElement(
       "div",
       ["movieList-item"],
-      `movie-${movie.id}`
+      `movie-${movie.movieId}`
     );
 
     movieContainer.appendChild(movieElement);
@@ -65,19 +66,16 @@ class MovieView {
     movieDetails.appendChild(movieHeader);
 
     let directorStudioString = "";
-    if (movie.director) {
-      const director = this.directors?.find(
-        (directorItem) => directorItem.id === movie.director
-      );
-      directorStudioString = director?.name;
+    if (movie.movieDirectors) {
+      const parsedDirectors = movie.movieDirectors?.split(",");
+      directorStudioString = parsedDirectors[0];
     }
 
-    if (movie.studio) {
-      const studioName = this.studios?.find(
-        (studioItem) => studioItem.id === movie.studio
-      )?.name;
+    if (movie.movieStudios) {
+      const parsedStudios = movie.movieStudios?.split(",");
+      const studioName = parsedStudios[0];
       directorStudioString += `${
-        movie.director ? `, ${studioName}` : studioName
+        movie.movieDirectors ? `, ${studioName}` : studioName
       }`;
     }
 
@@ -92,19 +90,17 @@ class MovieView {
       movieDetails.appendChild(instructorStudioElement);
     }
 
-    if (movie.actors) {
+    if (movie.movieActors) {
       try {
         const actorsContainer = createElement(
           "div",
           ["actors-container"],
           null
         );
-
-        movie.actors?.forEach((actorItem) => {
+        const parsedActors = movie.movieActors.split(",");
+        parsedActors?.forEach((actorItem) => {
           const actorElement = createElement("span", ["actor-item"], null);
-          actorElement.innerHTML = this.actors?.find(
-            (actor) => actor.id === actorItem
-          ).name;
+          actorElement.innerHTML = actorItem;
           actorsContainer.appendChild(actorElement);
         });
 
@@ -118,7 +114,7 @@ class MovieView {
     movieDescription.innerHTML = movie.movieDescription;
     movieDetails.appendChild(movieDescription);
 
-    if (movie.ratedR) {
+    if (movie.movieRatedR) {
       const ratedR = createElement("p", ["movie-item-ratedR"], null);
       ratedR.textContent = "18+";
       movieDetails.appendChild(ratedR);
@@ -129,7 +125,7 @@ class MovieView {
       ["movie-deleteButton", "btn-danger", "btn"],
       null
     );
-    deleteButton.setAttribute("data-id", movie.id);
+    deleteButton.setAttribute("data-movieid", movie.movieId);
     deleteButton.textContent = "Delete";
     movieDetails.appendChild(deleteButton);
   }
@@ -138,8 +134,8 @@ class MovieView {
     const deleteButtons = document.querySelectorAll(".movie-deleteButton");
     deleteButtons.forEach((deleteBtn) => {
       deleteBtn.addEventListener("click", (e) => {
-        const movieId = e.currentTarget?.dataset?.id;
-        console.log(movieId, callback);
+        const movieId = e.currentTarget?.dataset?.movieid;
+        console.log(movieId);
         if (callback && movieId) callback(movieId);
       });
     });

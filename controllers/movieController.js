@@ -49,13 +49,14 @@ class MovieController {
       "/moviefanatic/api/getMovies.php"
     );
     if (fetchedMovies) {
+      console.log(fetchedMovies);
       const parsedResult = JSON.parse(fetchedMovies); // Parsing movies to JSON;
-
+      console.log(parsedResult);
       this.movieModel.addMovies(parsedResult);
 
-      parsedResult.forEach((element) => {
-        const actorsArray = element.actors?.split(","); // Splitting string with actors into array with actor items;
-        element.actors = actorsArray; // Adding parsed actors array on movie object before displaying;
+      parsedResult.forEach(async (element) => {
+        //const actorsArray = element.movieActors?.split(","); // Splitting string with actors into array with actor items;
+        // Adding parsed actors array on movie object before displaying;
         this.movieView.addMovie(element);
       });
 

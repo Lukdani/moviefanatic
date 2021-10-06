@@ -20,8 +20,8 @@
                                         class="form-control" />
                                 </div>
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="createdDate">Creation date</label>
-                                    <input type="date" name="data[createdDate]" id="createdDate"
+                                    <label for="movieCreatedDate">Creation date</label>
+                                    <input type="date" name="data[movieCreatedDate]" id="movieCreatedDate"
                                         placeholder="Creation date" class="form-control" />
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                             <div class="row">
                                 <div class="form-group col-12">
                                     <label for="movieActors">actors</label>
-                                    <select id="actorsSelect" name="data[actors][]" class="form-select"
+                                    <select id="actorsSelect" name="data[movieActors][]" class="form-select"
                                         aria-label="multiple select example" multiple>
                                         <!--<option value="Brad Pitt">Brad Pitt</option>
                                         <option value="George Clooney">George Clooney</option>
@@ -47,12 +47,12 @@
                             <div class="row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="director">Director</label>
-                                    <select id="directorSelect" name="data[director]" class="form-select"
+                                    <select id="directorSelect" name="data[movieDirector]" class="form-select"
                                         aria-label="multiple select example"></select>
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="owner">Studio</label>
-                                    <select id="studioSelect" name="data[studio]" class="form-select"
+                                    <select id="studioSelect" name="data[movieStudio]" class="form-select"
                                         aria-label="multiple select example">
                                     </select>
                                 </div>
@@ -60,8 +60,8 @@
                             <div class="row">
                                 <div class="form-group col-12 col-md-6">
                                     <div class="form-check">
-                                        <input name="data[ratedR]" class="form-check-input" type="checkbox" value=""
-                                            id="ratedR">
+                                        <input name="data[movieRatedR]" class="form-check-input" type="checkbox"
+                                            value="" id="ratedR">
                                         <label class="form-check-label" for="ratedR">
                                             Rated R
                                         </label>
@@ -88,7 +88,7 @@
     </div>
 </div>
 <script>
-document.querySelector("#createdDate").valueAsDate = new Date();
+document.querySelector("#movieCreatedDate").valueAsDate = new Date();
 </script>
 <script type="module" src="./scripts/addMovie.js"></script>
 </div>
