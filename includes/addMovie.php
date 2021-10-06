@@ -2,7 +2,7 @@
 <div class="modal fade" id="addMovieModal" tabindex="-1" role="dialog" aria-labelledby="addMovieModal"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" action="/moviefanatic/api/addMovie.php">
+        <form method="post" action="/moviefanatic/api/addMovie.php" enctype="multipart/form-data">
             <div class="modal-content bg-dark">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addMovieModal">Add movie</h5>
@@ -69,9 +69,8 @@
 
                                 </div>
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="movieImg">Movie URL</label>
-                                    <input type="text" name="data[movieImg]" id="movieImg" placeholder="Image URL"
-                                        class="form-control" />
+                                    <label for="movieImg">Movie image</label>
+                                    <input type="file" name="movieImg" id="movieImg" class="form-control" />
                                 </div>
                             </div>
                         </div>

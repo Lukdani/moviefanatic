@@ -42,7 +42,6 @@ class AddMovieController {
     );
     if (studios?.length > 0) {
       const parsedStudios = tryJsonParse(studios); // Array from backend comes as a stringified array, so we need to parse it;
-      console.log(parsedStudios);
       if (parsedStudios) {
         this.addMovieModel.data.studios = parsedStudios;
         this.addMovieView.populateStudioOptions(parsedStudios);

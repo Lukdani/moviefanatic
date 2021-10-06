@@ -3,6 +3,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/moviefanatic/settings/init.php";
 
 if (!empty($_POST["data"])) {
     $data = $_POST["data"];
+    $file = $_FILES;
+
+$movieImg = $file["movieImg"]["tmp_name"];
+
+if (!empty($movieImg)) {
+    move_uploaded_file($movieImg, $_SERVER['DOCUMENT_ROOT'] . "/moviefanatic/uploads/" . basename($file["movieImg"]["name"]));
+}
 
     if (!empty($data["movieActors"])) {
         $implodedActors = implode(',', $data["movieActors"]);
@@ -15,13 +22,13 @@ if (!empty($_POST["data"])) {
     }
     
     $sql = "INSERT INTO movies (movieName, movieDescription, movieCreatedDate, movieRatedR, movieImg ) VALUES(:movieName, :movieDescription, :movieCreatedDate, :movieRatedR, :movieImg)";
-    
+
     $bind = [
         ":movieName" => $data["movieName"], 
         ":movieDescription" => $data["movieDescription"], 
         ":movieCreatedDate" => $data["movieCreatedDate"],
         ":movieRatedR" => $ratedRBool,
-        ":movieImg" => $data["movieImg"]
+        ":movieImg" => (!empty($movieImg)) ? $file["movieImg"]["name"] : NULL
     ];
 
 $db->sql( $sql, $bind, false);

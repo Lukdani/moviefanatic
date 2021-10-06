@@ -50,7 +50,7 @@ class MovieView {
     movieContainer.appendChild(movieElement);
 
     const movieImg = createElement("img", ["movie-img"], null);
-    movieImg.setAttribute("src", movie.movieImg);
+    movieImg.setAttribute("src", `/moviefanatic/uploads/${movie.movieImg}`);
 
     movieElement.appendChild(movieImg);
     movieContainer.appendChild(movieElement);
