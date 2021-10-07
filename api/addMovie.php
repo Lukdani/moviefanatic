@@ -68,7 +68,13 @@ $db->sql( $sqlMovieStudio, $bindMovieStudio, false);
 }
 
 }
-
-header("Location: /moviefanatic/index.php"); // Navigate to movies page AND refresh page (so modal closes etc.);
-
 ?>
+
+<script>
+    function Congratz(){
+        alert("Tillykke! Du har tilføjet en film, og er den heldige vinder af et iTunes gavekort på 10'000,- kr.");
+    }
+    Congratz();
+
+    document.location = '/moviefanatic/index.php';
+</script>
