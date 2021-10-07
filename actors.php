@@ -36,6 +36,9 @@ $actors = $db->sql($actorsQuery);
     <div class="bg-secondary">
         <h3> <?= $actor->actName ?></h3>
         <p> <?= $actor->actBirthday ?></p>
+        <p> <?= $actor->actBorn ?></p>
+        <p> <?= $actor->actActive ?></p>
+        <p> <?= $actor->actWorks ?></p>
     </div>
 
  ?>
