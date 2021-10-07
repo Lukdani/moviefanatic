@@ -1,3 +1,12 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . "/moviefanatic/settings/init.php";
+
+$actorsQuery = "SELECT * FROM actors";
+$actors = $db->sql($actorsQuery);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="da">
 
@@ -21,10 +30,18 @@
 <body class="bg-dark text-light">
 
 <?php include "./includes/navbar.php"; ?>
-<?php include "./includes/addMovie.php"; ?>
+<div id="actors">
+    <?php foreach($actors as $actor)
 
-<div id="actors"></div>
-<script type="module" src="./scripts/movie.js"></script>
+    <div class="bg-secondary">
+        <h3> <?= $actor->actName ?></h3>
+        <p> <?= $actor->actBirthday ?></p>
+    </div>
+
+ ?>
+</div>
+
+
 
 
 
