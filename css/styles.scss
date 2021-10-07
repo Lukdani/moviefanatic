@@ -49,6 +49,11 @@ img {
   font-family: $font-family-header;
   font-size: 3rem !important;
   color: $custom-primary;
+  transition: all 0.2s ease-in;
+  &:hover {
+    color: $custom-secondary !important;
+    transform: scale(1.05) skew(1deg);
+  }
 }
 
 .nav-link {
@@ -122,6 +127,13 @@ button {
   margin-bottom: 0.5rem;
 }
 
+.movie-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin: auto;
+}
+
 /* TINY MCE */
 .tox .tox-mbtn__select-label {
   color: $custom-dark !important;
@@ -130,4 +142,15 @@ button {
 .modal-title {
   font-size: 2rem !important;
   color: $custom-secondary;
+}
+
+.movie-item-ratedR {
+  width: 40px;
+  height: 40px;
+  background-color: $custom-dark;
+  padding: 5px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

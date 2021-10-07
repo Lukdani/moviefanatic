@@ -25,7 +25,7 @@
         <?php include "./includes/addMovie.php"; ?>
 
         <div id="movies"></div>
-        <script type="module" src="./movie.js"></script>
+        <script type="module" src="./scripts/movie.js"></script>
 
         <!-- CDNs etc. -->
         <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

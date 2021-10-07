@@ -1,53 +1,26 @@
-import makeRequest from "../utils/makeRequest.js";
+import postRequest from "../utils/postRequest.js";
 
 class MovieController {
   constructor(movieModel, movieView) {
     this.movieModel = movieModel;
     this.movieView = movieView;
-    this.getMovies();
+
+    this.fetchMovie();
   }
 
-  async getMovies() {
-    let result = await makeRequest("GET", "/moviefanatic/api/getMovies.php");
-    if (result) {
-      const parsedResult = JSON.parse(result);
-
-      this.movieModel.addMovies(parsedResult);
-      parsedResult.forEach((element) => {
-        const actorsArray = element.actors?.split(",");
-        element.actors = actorsArray;
-        this.movieView.addMovie(element);
-      });
-      this.movieView.bindDeleteButton(this.handleDeleteMovie);
+  fetchMovie = async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams.get("movieId"));
+    let movie;
+    await postRequest("/moviefanatic/api/getMovie.php", {
+      movieId: urlParams?.get("movieId"),
+      password: "kimkode1234",
+    })
+      .then((fetchedMovie) => fetchedMovie.json())
+      .then((parsedMovie) => (movie = parsedMovie));
+    if (movie != null) {
+      this.movieView.showMovie(movie[0]);
     }
-  }
-
-  async addMovie(movie) {
-    let result = await makeRequest(
-      "POST",
-      `/moviefanatic/api/addMovie.php?movie=${JSON.stringify(movie)}"`,
-      true
-    );
-    this.movieView.clearMovies();
-    await this.getMovies();
-
-    if (window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.href);
-    }
-  }
-
-  async deleteMovie(movieId) {
-    let result = await makeRequest(
-      "DELETE",
-      `/moviefanatic/api/deleteMovie.php?movieId=${movieId}"`,
-      true
-    );
-    this.movieView.clearMovies();
-    await this.getMovies();
-  }
-
-  handleDeleteMovie = async (movieId) => {
-    this.deleteMovie(movieId);
   };
 }
 

@@ -1,11 +1,11 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="addMovieModal" tabindex="-1" role="dialog" aria-labelledby="addMovieModal"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" action="/moviefanatic/api/addMovie.php">
+        <form method="post" action="/moviefanatic/api/addMovie.php" enctype="multipart/form-data">
             <div class="modal-content bg-dark">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add movie</h5>
+                    <h5 class="modal-title" id="addMovieModal">Add movie</h5>
                     <button type="button" class="close btn btn-secondary" data-dismiss="modal" aria-label="Close">
                         <i class="fas fa-times"></i>
                     </button>
@@ -20,8 +20,8 @@
                                         class="form-control" />
                                 </div>
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="createdDate">Creation date</label>
-                                    <input type="date" name="data[createdDate]" id="createdDate"
+                                    <label for="movieCreatedDate">Creation date</label>
+                                    <input type="date" name="data[movieCreatedDate]" id="movieCreatedDate"
                                         placeholder="Creation date" class="form-control" />
                                 </div>
                             </div>
@@ -35,11 +35,11 @@
                             <div class="row">
                                 <div class="form-group col-12">
                                     <label for="movieActors">actors</label>
-                                    <select name="data[actors][]" class="form-select"
+                                    <select id="actorsSelect" name="data[movieActors][]" class="form-select"
                                         aria-label="multiple select example" multiple>
-                                        <option value="Brad Pitt">Brad Pitt</option>
+                                        <!--<option value="Brad Pitt">Brad Pitt</option>
                                         <option value="George Clooney">George Clooney</option>
-                                        <option value="George Clooney">Julia Roberts</option>
+                                        <option value="George Clooney">Julia Roberts</option>-->
                                     </select>
                                 </div>
 
@@ -47,23 +47,21 @@
                             <div class="row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="director">Director</label>
-                                    <input type="text" name="data[director]" id="director" placeholder="Movie director"
-                                        class="form-control" />
+                                    <select id="directorSelect" name="data[movieDirector]" class="form-select"
+                                        aria-label="multiple select example"></select>
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="owner">Studio</label>
-                                    <select name="data[owner]" id="owner" class="form-select"
+                                    <select id="studioSelect" name="data[movieStudio]" class="form-select"
                                         aria-label="multiple select example">
-                                        <option selected value="warnerBros">Warner Bros</option>
-                                        <option value="universal">Universal</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-12 col-md-6">
                                     <div class="form-check">
-                                        <input name="data[ratedR]" class="form-check-input" type="checkbox" value=""
-                                            id="ratedR">
+                                        <input name="data[movieRatedR]" class="form-check-input" type="checkbox"
+                                            value="" id="ratedR">
                                         <label class="form-check-label" for="ratedR">
                                             Rated R
                                         </label>
@@ -71,9 +69,8 @@
 
                                 </div>
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="movieImg">Movie URL</label>
-                                    <input type="text" name="data[movieImg]" id="movieImg" placeholder="Image URL"
-                                        class="form-control" />
+                                    <label for="movieImg">Movie image</label>
+                                    <input type="file" name="movieImg" id="movieImg" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -90,6 +87,7 @@
     </div>
 </div>
 <script>
-document.querySelector("#createdDate").valueAsDate = new Date();
+document.querySelector("#movieCreatedDate").valueAsDate = new Date();
 </script>
+<script type="module" src="./scripts/addMovie.js"></script>
 </div>
