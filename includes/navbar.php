@@ -13,7 +13,7 @@
                 <a class="nav-link" href="/moviefanatic/index.php">Movies</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Actors</a>
+                <a class="nav-link" href="/moviefanatic/actors.php">Actors</a>
             </li>
         </ul>
 
