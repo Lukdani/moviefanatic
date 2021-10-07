@@ -33,7 +33,7 @@ class MovieController {
   updateMovies(fetchedMovies) {
     if (fetchedMovies) {
       this.movieView.clearMovies();
-      const parsedResult = JSON.parse(fetchedMovies); // Parsing movies to JSON;
+      const parsedResult = tryJsonParse(fetchedMovies); // Parsing movies to JSON;
       this.movieModel.addMovies(parsedResult);
 
       parsedResult.forEach(async (element) => {

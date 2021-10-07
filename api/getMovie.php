@@ -3,10 +3,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/moviefanatic/settings/init.php";
 
 $httpBody = json_decode(file_get_contents('php://input'), true);
 
-$movieName = $httpBody["movieName"];
+if (isset($httpBody["movieName"])) {
+    $movieName = $httpBody["movieName"];
+}
+
+/*
 $movieId = $httpBody["movieId"];
 $movieActor = $httpBodoy["movieActor"];
-
+*/
 $password = "kimkode1234";
 
 $sqlQuery = "SELECT * FROM movies where 1=1 ";
