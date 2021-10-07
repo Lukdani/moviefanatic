@@ -36,7 +36,7 @@ echo
     "<div class='bg-secondary'>".
         "<div class='container'>".
             "<div class='row'>".
-                "<div class='col-sm-4'>Billede</div>".
+                "<div class='col-sm-4'> <img source='moviefanatic/uploads/" . $actor->actPicture . "'/>" . "</div>".
                 "<div class='col-sm-8'>".
                     "<h3>" . $actor->actName. "</h3>".
                     "<br>".
@@ -55,7 +55,6 @@ echo
             "</div>".
         "</div>".
     '</div>';
-    //hej
  ?>
 </div>
 
