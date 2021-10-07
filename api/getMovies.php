@@ -32,7 +32,7 @@ $moviesQuery = (
     ");
 
 if(!empty($movieName)) {
-    $moviesQuery .= " WHERE movieName = :movieName";
+    $moviesQuery .= " WHERE movieName LIKE CONCAT('%', :movieName, '%')";
     $binds[":movieName"] = $movieName;
 }
 

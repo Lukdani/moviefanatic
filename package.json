@@ -1,7 +1,7 @@
 {
   "name": "npmtest",
   "version": "1.0.0",
-  "description": "",
+  "description": "Klon dette projekt og kom hurtigt i gang med dit næste projekt.",
   "main": "index.js",
   "scripts": {
     "watch": "onchange \"css/*.scss\" -- npm run sass",
@@ -15,5 +15,13 @@
   "devDependencies": {
     "node-sass": "^5.0.0",
     "onchange": "^7.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lukdani/moviefanatic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lukdani/moviefanatic/issues"
+  },
+  "homepage": "https://github.com/Lukdani/moviefanatic#readme"
 }
