@@ -7,6 +7,7 @@ class MovieController {
     this.movieView = movieView;
 
     this.getMovies();
+    this.movieView.bindSearchName(this.fetchMovies);
   }
 
   // WE NEED TO FETCH ACTORS, DIRECTORS AND STDUIOS in order to show details in the view (the movie object itself only contains the IDs);
@@ -26,7 +27,12 @@ class MovieController {
       "GET",
       "/moviefanatic/api/getMovies.php"
     );
+    this.updateMovies(fetchedMovies);
+  }
+
+  updateMovies(fetchedMovies) {
     if (fetchedMovies) {
+      this.movieView.clearMovies();
       const parsedResult = JSON.parse(fetchedMovies); // Parsing movies to JSON;
       this.movieModel.addMovies(parsedResult);
 
@@ -65,6 +71,25 @@ class MovieController {
     this.movieView.clearMovies(); // Clearing movies from the view, it's empty before fetching and displaying movies again;
     await this.getMovies(); // Fetching movies (now without the deleted one) and displaying them in the UI;
   }
+
+  fetchMovies = async (e) => {
+    const value = e.currentTarget?.value;
+    if (value) {
+      let result = await makeRequest(
+        "GET",
+        `/moviefanatic/api/getMovies.php?movieName=${value}`,
+        false
+      );
+      if (result) this.updateMovies(result);
+    } else if (!value) {
+      let result = await makeRequest(
+        "GET",
+        `/moviefanatic/api/getMovies.php`,
+        false
+      );
+      if (result) this.updateMovies(result);
+    }
+  };
 
   handleDeleteMovie = async (movieId) => {
     this.deleteMovie(movieId);

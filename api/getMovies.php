@@ -1,6 +1,9 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/moviefanatic/settings/init.php";
 
+$movieName = $_REQUEST["movieName"];
+$binds = [];
+
 $moviesQuery = (
     "SELECT 
     m.movieId, 
@@ -23,11 +26,15 @@ $moviesQuery = (
     left join movie_studio on movie_studio.movieId = m.movieId
     left join studios s on s.studId = movie_studio.studId
     
-    group by 
-    m.movieId
     ");
 
-$movies = $db->sql($moviesQuery);
+if(!empty($movieName)) {
+    $moviesQuery .= " WHERE movieName = :movieName";
+    $binds[":movieName"] = $movieName;
+}
+
+$moviesQuery .= " group by m.movieId";
+$movies = $db->sql($moviesQuery, $binds);
 
 echo json_encode($movies);
 

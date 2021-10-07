@@ -9,8 +9,23 @@ class MoviesView {
 
     this.moviesHeader = createElement("h3", ["moviesHeader", "mt-4"], null);
     this.moviesHeader.textContent = "Movies in the DB!";
-
     this.moviesContainer.appendChild(this.moviesHeader);
+
+    this.nameInputGroup = createElement("div", ["form-group"], null);
+    this.moviesContainer.appendChild(this.nameInputGroup);
+    this.nameInputLabel = createElement("label", ["search-label", null]);
+    this.nameInputLabel.setAttribute("for", "movies-name-search");
+    this.nameInputLabel.textContent = "Search on name";
+
+    this.nameInputGroup.appendChild(this.nameInputLabel);
+
+    this.nameInput = createElement(
+      "input",
+      ["movies-search-input", "form-control"],
+      "movies-name-search"
+    );
+    this.nameInput.placeholder = "Search on movie name";
+    this.nameInputGroup.appendChild(this.nameInput);
 
     this.moviesRow = createElement("div", ["row"], null);
     this.moviesContainer.appendChild(this.moviesRow);
@@ -145,6 +160,12 @@ class MoviesView {
         const movieId = e.currentTarget?.dataset?.movieid;
         if (callback && movieId) callback(movieId);
       });
+    });
+  };
+
+  bindSearchName = (callback) => {
+    this.nameInput.addEventListener("change", (e) => {
+      if (callback) callback(e);
     });
   };
 }
