@@ -20,23 +20,24 @@ $actors = $db->sql($actorsQuery);
     <?php include "./includes/dependencies.php"; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.tiny.cloud/1/ahizxth4ug3hvkg2d8fl0o9hwzcvl47nf2m6d3s8f2kf8uh9/tinymce/5/tinymce.min.js"
-            referrerpolicy="origin"></script>
+        referrerpolicy="origin"></script>
     <script>
-        tinymce.init({
-            selector: ''
-        });
+    tinymce.init({
+        selector: ''
+    });
     </script>
 </head>
+
 <body class="bg-dark text-light">
 
-<?php include "./includes/navbar.php"; ?>
-<div id="actors">
-    <?php foreach($actors as $actor)
+    <?php include "./includes/navbar.php"; ?>
+    <div id="actors">
+        <?php foreach($actors as $actor)
 echo
     "<div class='bg-secondary'>".
         "<div class='container'>".
             "<div class='row'>".
-                "<div class='col-sm-4'> <img source='moviefanatic/uploads/" . $actor->actPicture . "'/>" . "</div>".
+                "<div class='col-sm-4'> <img src='/moviefanatic/uploads/" . $actor->actPicture . "'/>" . "</div>".
                 "<div class='col-sm-8'>".
                     "<h3>" . $actor->actName. "</h3>".
                     "<br>".
@@ -56,9 +57,8 @@ echo
         "</div>".
     '</div>';
  ?>
-</div>
+    </div>
 
 </body>
 
 </html>
-
