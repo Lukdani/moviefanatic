@@ -1,6 +1,6 @@
-import MovieController from "../controllers/movieController.js";
-import MovieModel from "../models/movieModel.js";
-import MovieListView from "../views/movieView.js";
+import MovieController from "../controllers/moviesController.js";
+import MovieModel from "../models/moviesModel.js";
+import MovieListView from "../views/moviesView.js";
 
 const movieRoot = document.querySelector("#movies");
 const movieModel = new MovieModel();

@@ -1,23 +1,47 @@
 import createElement from "../utils/createElement.js";
+import { formatDate } from "../utils/formatDate.js";
+import tryJsonParse from "../utils/tryJsonParse.js";
 
-class MovieView {
-  constructor(movieContainer) {
-    this.movieContainer = movieContainer;
+class MoviesView {
+  constructor(containerElement) {
+    this.moviesContainer = createElement("div", ["container-lg"], null);
+    containerElement.appendChild(this.moviesContainer);
+
+    this.moviesHeader = createElement("h3", ["moviesHeader", "mt-4"], null);
+    this.moviesHeader.textContent = "Movies in the DB!";
+
+    this.moviesContainer.appendChild(this.moviesHeader);
+
+    this.moviesRow = createElement("div", ["row"], null);
+    this.moviesContainer.appendChild(this.moviesRow);
   }
 
-  showMovie = (movie) => {
+  clearMovies() {
+    this.moviesRow.innerHTML = "";
+  }
+
+  addMovie(movie) {
+    const movieContainer = createElement(
+      "div",
+      ["movieList-item-container", "col-12", "col-md-4"],
+      `movie-${movie.id}`
+    );
+
+    this.moviesRow.appendChild(movieContainer);
+
     const movieElement = createElement(
       "div",
-      ["movie-item"],
+      ["movieList-item"],
       `movie-${movie.movieId}`
     );
 
-    this.movieContainer.appendChild(movieElement);
+    movieContainer.appendChild(movieElement);
 
     const movieImg = createElement("img", ["movie-img"], null);
     movieImg.setAttribute("src", `/moviefanatic/uploads/${movie.movieImg}`);
 
     movieElement.appendChild(movieImg);
+    movieContainer.appendChild(movieElement);
 
     const movieDetails = createElement("div", ["movie-details"], null);
     movieElement.appendChild(movieDetails);
@@ -86,13 +110,22 @@ class MovieView {
 
     const deleteButton = createElement(
       "button",
-      ["movie-deleteButton", "btn-danger", "btn"],
+      ["movie-deleteButton", "btn-dark", "btn"],
       null
     );
     deleteButton.setAttribute("data-movieid", movie.movieId);
     deleteButton.textContent = "Delete";
     movieDetails.appendChild(deleteButton);
-  };
+
+    const detailsButton = createElement(
+      "button",
+      ["movie-detailsButton", "btn-secondary", "btn"],
+      null
+    );
+    detailsButton.setAttribute("data-movieid", movie.movieId);
+    detailsButton.textContent = "Details  ";
+    movieDetails.appendChild(detailsButton);
+  }
 
   bindDeleteButton = (callback) => {
     const deleteButtons = document.querySelectorAll(".movie-deleteButton");
@@ -104,6 +137,16 @@ class MovieView {
       });
     });
   };
+
+  bindDetailsButton = (callback) => {
+    const detailsButton = document.querySelectorAll(".movie-detailsButton");
+    detailsButton.forEach((detailsBtn) => {
+      detailsBtn.addEventListener("click", (e) => {
+        const movieId = e.currentTarget?.dataset?.movieid;
+        if (callback && movieId) callback(movieId);
+      });
+    });
+  };
 }
 
-export default MovieView;
+export default MoviesView;

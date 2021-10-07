@@ -10,7 +10,7 @@
         style="display:flex; align-items:center; justify-content:space-between;">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Movies</a>
+                <a class="nav-link" href="/moviefanatic/index.php">Movies</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Actors</a>
