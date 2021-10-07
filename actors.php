@@ -34,20 +34,29 @@ $actors = $db->sql($actorsQuery);
     <?php foreach($actors as $actor)
 echo
     "<div class='bg-secondary'>".
-        "<h3>" . $actor->actName. "</h3>".
-        "<p>". $actor->actBirthday."</p>".
-        "<p>". $actor->actBorn. "</p>".
-        "<p>" . $actor->actActive. "</p>".
-        "<p>". $actor->actWorks. "</p>" .
+        "<div class='container'>".
+            "<div class='row'>".
+                "<div class='col-sm-4'>Billede</div>".
+                "<div class='col-sm-8'>".
+                    "<h3>" . $actor->actName. "</h3>".
+                    "<br>".
+                    "<p>". $actor->actBirthday."</p>".
+                    "<br>".
+                    "<p>". $actor->actBorn. "</p>".
+                    "<br>".
+                    "<p>" . $actor->actActive. "</p>".
+                "</div>".
+            "</div>".
+                "<div class='row'>".
+                    "<div class='col-sm-12'>".
+                        "<p>". $actor->actWorks. "</p>" .
+                    "</div>".
+                "</div>".
+            "</div>".
+        "</div>".
     '</div>';
-
  ?>
 </div>
-
-
-
-
-
 
 </body>
 
