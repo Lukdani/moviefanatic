@@ -7,8 +7,13 @@ if (isset($httpBody["movieName"])) {
     $movieName = $httpBody["movieName"];
 }
 
+if (isset($httpBody["movieId"])) {
+    $movieId = $httpBody["movieId"];
+}
+
+
+
 /*
-$movieId = $httpBody["movieId"];
 $movieActor = $httpBodoy["movieActor"];
 */
 $password = "kimkode1234";
