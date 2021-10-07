@@ -17,6 +17,7 @@
     <?php include "./includes/navbar.php"; ?>
 
     <div id="movie"></div>
+    <?php include "./includes/addMovie.php"; ?>
     <script type="module" src="./scripts/moviePage.js"></script>
 
     <!-- CDNs etc. -->

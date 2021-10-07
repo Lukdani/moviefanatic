@@ -49,6 +49,11 @@ img {
   font-family: $font-family-header;
   font-size: 3rem !important;
   color: $custom-primary;
+  transition: all 0.2s ease-in;
+  &:hover {
+    color: $custom-secondary !important;
+    transform: scale(1.05) skew(1deg);
+  }
 }
 
 .nav-link {
