@@ -1,7 +1,10 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/moviefanatic/settings/init.php";
 
-$movieName = $_REQUEST["movieName"];
+if (isset($_REQUEST["movieName"])) {
+    $movieName = $_REQUEST["movieName"];
+}
+
 $binds = [];
 
 $moviesQuery = (
