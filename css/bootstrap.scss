@@ -21,5 +21,6 @@ $custom-colors: (
   "dark": $custom-dark,
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 
 @import "../node_modules/bootstrap/scss/bootstrap";

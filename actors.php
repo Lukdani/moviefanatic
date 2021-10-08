@@ -20,10 +20,10 @@ $actors = $db->sql($actorsQuery);
     <?php include "./includes/dependencies.php"; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="css/bootstrap.scss" rel="stylesheet" type="text/css" />
-    <link href="css/styles.scss" rel="stylesheet" type="text/css" />
-    <link href="css/movies.scss" rel="stylesheet" type="text/css" />
-
+    <link href="./css/bootstrap.scss" rel="stylesheet" type="text/css" />
+    <link href="./css/styles.scss" rel="stylesheet" type="text/css" />
+    <link href="./css/movies.scss" rel="stylesheet" type="text/css" />
+    <?php include "./includes/dependencies.php"; ?>
     <script src="https://cdn.tiny.cloud/1/ahizxth4ug3hvkg2d8fl0o9hwzcvl47nf2m6d3s8f2kf8uh9/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script>
@@ -36,6 +36,7 @@ $actors = $db->sql($actorsQuery);
 <body class="bg-dark text-light">
 
     <?php include "./includes/navbar.php"; ?>
+    <?php include "./includes/addMovie.php"; ?>
     <div id="actors">
         <?php foreach($actors as $actor)
 echo
@@ -43,7 +44,7 @@ echo
         "<div class='container p-2'>".
             "<div class='row'>".
                 "<div class='col-sm-4 p-2 border'> <img src='/moviefanatic/uploads/" . $actor->actPicture . "'/>" . "</div>".
-                "<div class='col-sm-8 p-2 border bg-danger text-black'>".
+                "<div class='col-sm-8 p-2 border bg-primary text-black'>".
                     "<h3 class='overskrift text-white'>" . $actor->actName. "</h3>".
                     "<br>".
                     "<h3 class='født text-white'>Født: ". $actor->actBirthday."</h3>".
@@ -57,7 +58,7 @@ echo
                             "<div class='accordion-item'>".
                                 "<h2 class='accordion-header' id='headingOne'>".
                                     "<button class='accordion-button bg-black' type='button' data-bs-toggle='collapse' data-bs-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>".
-                                            "<h2 class='text-danger'>Filmoversigt</h2>".
+                                            "<h2 class='text-primary'>Filmoversigt</h2>".
                                     "</button>".
                                 "</h2>".
                                 "<div id='collapseOne' class='accordion-collapse collapse show' aria-labelledby='headingOne' data-bs-parent='#accordionExample'>".
