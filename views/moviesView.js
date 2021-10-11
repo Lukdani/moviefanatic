@@ -11,8 +11,16 @@ class MoviesView {
     this.moviesHeader.textContent = "Movies in the DB!";
     this.moviesContainer.appendChild(this.moviesHeader);
 
-    this.nameInputGroup = createElement("div", ["form-group"], null);
-    this.moviesContainer.appendChild(this.nameInputGroup);
+    // INPUTS
+    this.inputContainer = createElement("div", ["row"], null);
+    this.moviesContainer.appendChild(this.inputContainer);
+
+    this.nameInputGroup = createElement(
+      "div",
+      ["form-group", "col-12", "col-md-3"],
+      null
+    );
+    this.inputContainer.appendChild(this.nameInputGroup);
     this.nameInputLabel = createElement("label", ["search-label", null]);
     this.nameInputLabel.setAttribute("for", "movies-name-search");
     this.nameInputLabel.textContent = "Search on name";
@@ -25,7 +33,57 @@ class MoviesView {
       "movies-name-search"
     );
     this.nameInput.placeholder = "Search on movie name";
+    this.nameInput.name = "movieName";
     this.nameInputGroup.appendChild(this.nameInput);
+
+    // YEAR
+
+    this.yearInputGroup = createElement(
+      "div",
+      ["form-group", "col-12", "col-md-3"],
+      null
+    );
+    this.inputContainer.appendChild(this.yearInputGroup);
+    this.yearInputLabel = createElement("label", ["search-label", null]);
+    this.yearInputLabel.setAttribute("for", "movies-year-search");
+    this.yearInputLabel.textContent = "Search on year";
+
+    this.yearInputGroup.appendChild(this.yearInputLabel);
+
+    this.yearInput = createElement(
+      "input",
+      ["movies-search-input", "form-control"],
+      "movies-year-search"
+    );
+    this.yearInput.placeholder = "Search on movie year";
+    this.yearInput.name = "movieYear";
+    this.yearInputGroup.appendChild(this.yearInput);
+    //
+
+    // MOVIE RATED R
+    this.ratedRInputGroup = createElement(
+      "div",
+      ["form-group", "col-12", "col-md-3"],
+      null
+    );
+    this.inputContainer.appendChild(this.ratedRInputGroup);
+    this.ratedRInputLabel = createElement("label", ["search-label", null]);
+    this.ratedRInputLabel.setAttribute("for", "movies-ratedR");
+    this.ratedRInputLabel.textContent = "Rated R";
+
+    this.ratedRInputGroup.appendChild(this.ratedRInputLabel);
+
+    this.ratedRInput = createElement(
+      "input",
+      ["movies-search-input", "form-control"],
+      "movies-ratedR"
+    );
+
+    this.ratedRInput.name = "movieRatedR";
+    this.ratedRInput.type = "checkbox";
+    this.ratedRInput.value = "true";
+    this.ratedRInputGroup.appendChild(this.ratedRInput);
+    //
 
     this.moviesRow = createElement("div", ["row"], null);
     this.moviesContainer.appendChild(this.moviesRow);
@@ -165,6 +223,18 @@ class MoviesView {
 
   bindSearchName = (callback) => {
     this.nameInput.addEventListener("change", (e) => {
+      if (callback) callback(e);
+    });
+  };
+
+  bindSearchYear = (callback) => {
+    this.yearInput.addEventListener("change", (e) => {
+      if (callback) callback(e);
+    });
+  };
+
+  bindRatedRCheckbox = (callback) => {
+    this.ratedRInput.addEventListener("change", (e) => {
       if (callback) callback(e);
     });
   };

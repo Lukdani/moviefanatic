@@ -5,6 +5,16 @@ if (isset($_REQUEST["movieName"])) {
     $movieName = $_REQUEST["movieName"];
 }
 
+
+if (isset($_REQUEST["movieYear"])) {
+    $movieYear = $_REQUEST["movieYear"];
+}
+
+if (isset($_REQUEST["movieRatedR"])) {
+    $movieRatedR = $_REQUEST["movieRatedR"];
+}
+
+
 $binds = [];
 
 $moviesQuery = (
@@ -35,6 +45,18 @@ if(!empty($movieName)) {
     $moviesQuery .= " WHERE movieName LIKE CONCAT('%', :movieName, '%')";
     $binds[":movieName"] = $movieName;
 }
+
+if(!empty($movieYear)) {
+    $moviesQuery .= " WHERE year(movieCreatedDate) = ". $movieYear;
+    $binds[":movieYear"] = $movieYear;
+}
+
+if(!empty($movieRatedR) && $movieRatedR == "1" || $movieRatedR == "0") {
+    $moviesQuery .= " WHERE movieRatedR = " . $movieRatedR;
+     $binds[":movieRatedR"] = $movieRatedR;
+}
+
+
 
 $moviesQuery .= " group by m.movieId";
 $movies = $db->sql($moviesQuery, $binds);

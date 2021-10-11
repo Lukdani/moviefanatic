@@ -8,6 +8,8 @@ class MovieController {
 
     this.getMovies();
     this.movieView.bindSearchName(this.fetchMovies);
+    this.movieView.bindSearchYear(this.fetchMovies);
+    this.movieView.bindRatedRCheckbox(this.fetchMovies);
   }
 
   // WE NEED TO FETCH ACTORS, DIRECTORS AND STDUIOS in order to show details in the view (the movie object itself only contains the IDs);
@@ -73,21 +75,31 @@ class MovieController {
   }
 
   fetchMovies = async (e) => {
-    const value = e.currentTarget?.value;
-    if (value) {
-      let result = await makeRequest(
-        "GET",
-        `/moviefanatic/api/getMovies.php?movieName=${value}`,
-        false
-      );
-      if (result) this.updateMovies(result);
-    } else if (!value) {
-      let result = await makeRequest(
-        "GET",
-        `/moviefanatic/api/getMovies.php`,
-        false
-      );
-      if (result) this.updateMovies(result);
+    const inputName = e.currentTarget.name;
+    if (
+      inputName == "movieName" ||
+      inputName === "movieYear" ||
+      inputName === "movieRatedR"
+    ) {
+      let value = e.currentTarget?.value;
+      if (inputName == "movieRatedR") {
+        value = e.currentTarget?.checked ? "1" : "0";
+      }
+      if (value) {
+        let result = await makeRequest(
+          "GET",
+          `/moviefanatic/api/getMovies.php?${inputName}=${value}`,
+          false
+        );
+        if (result) this.updateMovies(result);
+      } else if (!value) {
+        let result = await makeRequest(
+          "GET",
+          `/moviefanatic/api/getMovies.php`,
+          false
+        );
+        if (result) this.updateMovies(result);
+      }
     }
   };
 

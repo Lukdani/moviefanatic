@@ -61,7 +61,7 @@
                                 <div class="form-group col-12 col-md-6">
                                     <div class="form-check">
                                         <input name="data[movieRatedR]" class="form-check-input" type="checkbox"
-                                            value="" id="ratedR">
+                                            value="1" id="ratedR">
                                         <label class="form-check-label" for="ratedR">
                                             Rated R
                                         </label>
