@@ -1,21 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Vært: 127.0.0.1:3306
--- Genereringstid: 11. 10 2021 kl. 10:55:00
--- Serverversion: 5.7.31
--- PHP-version: 7.3.21
+-- Vært: localhost:8889
+-- Genereringstid: 11. 10 2021 kl. 11:11:16
+-- Serverversion: 5.7.32
+-- PHP-version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `moviefanatic`
@@ -28,16 +21,15 @@ SET time_zone = "+00:00";
 --
 
 DROP TABLE IF EXISTS `actors`;
-CREATE TABLE IF NOT EXISTS `actors` (
-  `actId` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `actors` (
+  `actId` int(11) NOT NULL,
   `actName` varchar(100) COLLATE utf8_danish_ci NOT NULL,
   `actBirthday` int(11) NOT NULL,
   `actBorn` text COLLATE utf8_danish_ci,
   `actActive` text COLLATE utf8_danish_ci,
   `actWorks` text COLLATE utf8_danish_ci,
-  `actPicture` varchar(100) COLLATE utf8_danish_ci DEFAULT NULL,
-  PRIMARY KEY (`actId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+  `actPicture` varchar(100) COLLATE utf8_danish_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 
 --
 -- Data dump for tabellen `actors`
@@ -46,7 +38,11 @@ CREATE TABLE IF NOT EXISTS `actors` (
 INSERT INTO `actors` (`actId`, `actName`, `actBirthday`, `actBorn`, `actActive`, `actWorks`, `actPicture`) VALUES
 (1, 'Brad Pitt', 1965, 'Shawnee, Oklahoma, U.S.', '1987–Stadig aktiv', 'The Departed (2006)Running with Scissors (2006)The Assassination of Jesse James by the Coward Robert Ford (2007)A Mighty Heart (2007)Eat Pray Love (2010)Kick-Ass (2010)Moneyball (2011)The Tree of Life (2011)Killing Them Softly (2012)Kick-Ass 2 (2013)12 Years a Slave (2013)World War Z (2013)The Big Short (2015)By the Sea (2015)The Lost City of Z (2016)Moonlight (2016)Brad\'s Status (2017)War Machine (2017)Beautiful Boy (2018)If Beale Street Could Talk (2018)Vice (2018)Ad Astra (2019)The King (2019)The Last Black Man in San Francisco (2019)Kajillionaire (2020)Minari (2020)Irresistible (2020)Blonde (2022)', 'bradpitt.jpeg'),
 (2, 'George Clooney', 1955, 'Lexington, Kentucky, U.S.', '1978–stadig aktiv', 'Return to Horror High (1987, Grizzly II: The Predator, Combat Academy (1986, Return of the Killer Tomatoes! (1988)\r\n, Red Surf (1990). The Magic Bubble, The Harvest, From Dusk Till Dawn (1996)\r\n, One Fine Day (1996), The Peacemaker (1997), Batman & Robin (1997), The Thin Red Line (1998), Out of Sight (1998), Three Kings, South Park: Bigger, Longer & Uncut (1999), The Perfect Storm (2000), O Brother, Where Art Thou? (2000), Ocean\'s Eleven, Spy Kids (2001), Confessions of a Dangerous Mind (2002), Solaris (1972), Welcome to Collinwood (2002), Intolerable Cruelty (2003), Spy Kids 3-D: Game Over (2003), Ocean\'s Twelve (2004), Good Night, and Good Luck. (2005), Syriana (2005), The Good German (2006), Michael Clayton (2007), Ocean\'s Thirteen (2007), Leatherheads (2008), Burn After Reading (2008), Fantastic Mr. Fox (2009), The Men Who Stare at Goats (2009), Up in the Air (2009), The American (2010), The Ides of March (2011), The Descendants (2011), Gravity (2013), The Monuments Men (2014), Tomorrowland (2015)', 'georgeclooney.jpeg'),
-(3, 'Bruce Willis', 1962, 'Idar-Oberstein, West Germany', '1978–Stadig aktiv', 'RED 2 (2013) Frank\r\nG.I. Joe: Retaliation (2013)- General Joe Colton\r\nA Good Day to Die Hard (2013)- John McClane\r\nLooper (2012)- Older Joe\r\nFire with Fire (2012)- Mike Cella\r\nThe Expendables 2 (2012)- Church\r\nMoonrise Kingdom (2012)- Captain Sharp\r\nThe Cold Light of Day (2012)- Martin\r\nLay the Favorite (2012)- Dink Heimowitz\r\nCatch .44 (2011)- Mel\r\nSetup (2011)- Biggs\r\nRed (2010)- Frank Moses\r\nThe Expendables (2010)- Mr. Church\r\nCop Out (2010)- Jimmy Monroe\r\nSurrogates (2009)- Tom Greer\r\nWhat Just Happened (2008)- Actor\r\nAssassination of a High School President (2008)- Principal Kirkpatrick\r\nPlanet Terror (2007)- Lt. Muldoon. The DVD title is ‘Grindhouse Presents: Robert Rodriguez’s Planet Terror’.\r\nNancy Drew (2007)- Bruce (uncredited)\r\nLive Free or Die Hard (2007)- John McClane. The film is known as ‘Die Hard 4.0′ in some countries.\r\nPerfect Stranger (2007)- Harrison Hill\r\nGrindhouse (2007)- Lt. Muldoon (from a segment in ‘Planet Terror’)\r\nThe Astronaut Farmer (2006)- Col. Doug Masterson (uncredited)\r\nFast Food Nation (2006)- Harry Rydell\r\nOver the Hedge (2006)- RJ (voice)\r\n16 Blocks (2006)- Det. Jack Mosley\r\nLucky Number Slevin (2006)- Mr. Goodkat. The DVD box title is ‘Lucky # Slevin’. The Australian title of the film is ‘The Wrong Man’.\r\nAlpha Dog (2006)- Sonny Truelove\r\nFrank Miller’s Sin City (2005)- Hartigan\r\nHostage (2005)- Jeff Talley\r\nOcean’s Twelve (2004)- Bruce Willis (uncredited)\r\nThe Whole Ten Yards (2004)- Jimmy\r\nCharlie’s Angels: Full Throttle (2003)- William Rose Bailey (uncredited)\r\nRugrats Go Wild (2003)- Spike (voice)\r\nTears of the Sun (2003)- Lt. A. K. Waters\r\nGrand Champion (2002)- Mr. Blandford\r\nHart’s War (2002)- Col. William A. McNamara\r\nBandits (2001)- Joseph ‘Joe’ Blake\r\nUnbreakable (2000)- David Dunn\r\nDisney’s The Kid (2000)- Russ Duritz\r\nThe Whole Nine Yards (2000)- Jimmy ‘The Tulip’ Tudeski\r\nThe Story of Us (1999)- Ben Jordan\r\nThe Sixth Sense (1999)- Dr. Malcolm Crow\r\nBreakfast of Champions (1999)- Dwayne Hoover\r\nThe Siege (1998)- Major General William Devereaux\r\nArmageddon (1998)- Harry S. Stamper\r\nMercury Rising (1998)- Art Jeffries\r\nThe Jackal (1997)- The Jackal\r\nThe Fifth Element (1997)- Korben Dallas\r\nBeavis and Butt-Head Do America (1996)- Muddy Grimes (voice)\r\nLast Man Standing (1996)- John Smith\r\nTwelve Monkeys (1995)- James Cole\r\nFour Rooms (1995)- Leo (uncredited)\r\nDie Hard: With a Vengeance (1995)- John McClane. Also known as ‘Die Hard 3′.\r\nNobody’s Fool (1994)- Carl Roebuck\r\nColor of Night (1994)- Dr. Bill Capa\r\nNorth (1994)- Narrator\r\nPulp Fiction (1994)- Butch Coolidge\r\nStriking Distance (1993)- Det. Tom Hardy\r\nNational Lampoon’s Loaded Weapon 1 (1993)- Man whose caravan is attacked (uncredited)\r\nDeath Becomes Her (1992)- Dr. Ernest Menville\r\nThe Last Boy Scout (1991)- Joe Hallenbeck\r\nBilly Bathgate (1991)- Bo Weinberg\r\nHudson Hawk (1991)- Hudson Hawk\r\nMortal Thoughts (1991)- James Urbanski\r\nThe Bonfire of the Vanities (1990)- Peter Fallow\r\nLook Who’s Talking Too (1990)- Mikey (voice)\r\nDie Hard 2 (1990)- Lt. John McClane\r\nLook Who’s Talking (1989)- Mikey (voice). The film is also known as ‘Daddy’s Home’.\r\nIn Country (1989)- Emmett Smith\r\nDie Hard (1988)- Officer John McClane\r\nSunset (1988)- Tom Mix. The US cable TV title is ‘Catalina’.\r\nBlake Edwards’ Blind Date (1987)- Walter Davis\r\nThe Verdict (1982)- Courtroom Observer (uncredited)\r\nThe First Deadly Sin (1980)- Man Entering Diner (uncredited)', 'brucewillis.jpeg');
+(3, 'Bruce Willis', 1962, 'Idar-Oberstein, West Germany', '1978–Stadig aktiv', 'RED 2 (2013) Frank\r\nG.I. Joe: Retaliation (2013)- General Joe Colton\r\nA Good Day to Die Hard (2013)- John McClane\r\nLooper (2012)- Older Joe\r\nFire with Fire (2012)- Mike Cella\r\nThe Expendables 2 (2012)- Church\r\nMoonrise Kingdom (2012)- Captain Sharp\r\nThe Cold Light of Day (2012)- Martin\r\nLay the Favorite (2012)- Dink Heimowitz\r\nCatch .44 (2011)- Mel\r\nSetup (2011)- Biggs\r\nRed (2010)- Frank Moses\r\nThe Expendables (2010)- Mr. Church\r\nCop Out (2010)- Jimmy Monroe\r\nSurrogates (2009)- Tom Greer\r\nWhat Just Happened (2008)- Actor\r\nAssassination of a High School President (2008)- Principal Kirkpatrick\r\nPlanet Terror (2007)- Lt. Muldoon. The DVD title is ‘Grindhouse Presents: Robert Rodriguez’s Planet Terror’.\r\nNancy Drew (2007)- Bruce (uncredited)\r\nLive Free or Die Hard (2007)- John McClane. The film is known as ‘Die Hard 4.0′ in some countries.\r\nPerfect Stranger (2007)- Harrison Hill\r\nGrindhouse (2007)- Lt. Muldoon (from a segment in ‘Planet Terror’)\r\nThe Astronaut Farmer (2006)- Col. Doug Masterson (uncredited)\r\nFast Food Nation (2006)- Harry Rydell\r\nOver the Hedge (2006)- RJ (voice)\r\n16 Blocks (2006)- Det. Jack Mosley\r\nLucky Number Slevin (2006)- Mr. Goodkat. The DVD box title is ‘Lucky # Slevin’. The Australian title of the film is ‘The Wrong Man’.\r\nAlpha Dog (2006)- Sonny Truelove\r\nFrank Miller’s Sin City (2005)- Hartigan\r\nHostage (2005)- Jeff Talley\r\nOcean’s Twelve (2004)- Bruce Willis (uncredited)\r\nThe Whole Ten Yards (2004)- Jimmy\r\nCharlie’s Angels: Full Throttle (2003)- William Rose Bailey (uncredited)\r\nRugrats Go Wild (2003)- Spike (voice)\r\nTears of the Sun (2003)- Lt. A. K. Waters\r\nGrand Champion (2002)- Mr. Blandford\r\nHart’s War (2002)- Col. William A. McNamara\r\nBandits (2001)- Joseph ‘Joe’ Blake\r\nUnbreakable (2000)- David Dunn\r\nDisney’s The Kid (2000)- Russ Duritz\r\nThe Whole Nine Yards (2000)- Jimmy ‘The Tulip’ Tudeski\r\nThe Story of Us (1999)- Ben Jordan\r\nThe Sixth Sense (1999)- Dr. Malcolm Crow\r\nBreakfast of Champions (1999)- Dwayne Hoover\r\nThe Siege (1998)- Major General William Devereaux\r\nArmageddon (1998)- Harry S. Stamper\r\nMercury Rising (1998)- Art Jeffries\r\nThe Jackal (1997)- The Jackal\r\nThe Fifth Element (1997)- Korben Dallas\r\nBeavis and Butt-Head Do America (1996)- Muddy Grimes (voice)\r\nLast Man Standing (1996)- John Smith\r\nTwelve Monkeys (1995)- James Cole\r\nFour Rooms (1995)- Leo (uncredited)\r\nDie Hard: With a Vengeance (1995)- John McClane. Also known as ‘Die Hard 3′.\r\nNobody’s Fool (1994)- Carl Roebuck\r\nColor of Night (1994)- Dr. Bill Capa\r\nNorth (1994)- Narrator\r\nPulp Fiction (1994)- Butch Coolidge\r\nStriking Distance (1993)- Det. Tom Hardy\r\nNational Lampoon’s Loaded Weapon 1 (1993)- Man whose caravan is attacked (uncredited)\r\nDeath Becomes Her (1992)- Dr. Ernest Menville\r\nThe Last Boy Scout (1991)- Joe Hallenbeck\r\nBilly Bathgate (1991)- Bo Weinberg\r\nHudson Hawk (1991)- Hudson Hawk\r\nMortal Thoughts (1991)- James Urbanski\r\nThe Bonfire of the Vanities (1990)- Peter Fallow\r\nLook Who’s Talking Too (1990)- Mikey (voice)\r\nDie Hard 2 (1990)- Lt. John McClane\r\nLook Who’s Talking (1989)- Mikey (voice). The film is also known as ‘Daddy’s Home’.\r\nIn Country (1989)- Emmett Smith\r\nDie Hard (1988)- Officer John McClane\r\nSunset (1988)- Tom Mix. The US cable TV title is ‘Catalina’.\r\nBlake Edwards’ Blind Date (1987)- Walter Davis\r\nThe Verdict (1982)- Courtroom Observer (uncredited)\r\nThe First Deadly Sin (1980)- Man Entering Diner (uncredited)', 'brucewillis.jpeg'),
+(4, 'Jennifer Lawrence', 1990, '1990', NULL, NULL, 'jenniferlawrence.jpg'),
+(5, 'Julia Roberts', 1967, '1967', NULL, NULL, 'juliaroberts.jpg'),
+(6, 'Ana De Armas', 1988, '1988', NULL, NULL, 'dearmas.jpg'),
+(8, 'Kate Winslet', 1975, '1975', NULL, NULL, 'katewinslet.jpg');
 
 -- --------------------------------------------------------
 
@@ -55,12 +51,11 @@ INSERT INTO `actors` (`actId`, `actName`, `actBirthday`, `actBorn`, `actActive`,
 --
 
 DROP TABLE IF EXISTS `directors`;
-CREATE TABLE IF NOT EXISTS `directors` (
-  `dirId` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `directors` (
+  `dirId` int(11) NOT NULL,
   `dirName` varchar(100) COLLATE utf8_danish_ci NOT NULL,
-  `dirBirthday` date DEFAULT NULL,
-  PRIMARY KEY (`dirId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+  `dirBirthday` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 
 --
 -- Data dump for tabellen `directors`
@@ -77,10 +72,10 @@ INSERT INTO `directors` (`dirId`, `dirName`, `dirBirthday`) VALUES
 --
 
 DROP TABLE IF EXISTS `movies`;
-CREATE TABLE IF NOT EXISTS `movies` (
+CREATE TABLE `movies` (
   `movieName` varchar(100) COLLATE utf8_danish_ci NOT NULL,
   `movieDescription` text COLLATE utf8_danish_ci,
-  `movieId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `movieId` int(11) UNSIGNED NOT NULL,
   `movieRating` int(11) DEFAULT NULL,
   `movieActors` text COLLATE utf8_danish_ci,
   `movieCreatedDate` datetime DEFAULT NULL,
@@ -88,9 +83,8 @@ CREATE TABLE IF NOT EXISTS `movies` (
   `movieRatings` set('Jens Hansen') COLLATE utf8_danish_ci DEFAULT NULL,
   `movieRatedR` tinyint(1) DEFAULT NULL,
   `movieStudio` int(100) DEFAULT NULL,
-  `movieImg` varchar(250) COLLATE utf8_danish_ci DEFAULT NULL,
-  PRIMARY KEY (`movieId`)
-) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+  `movieImg` varchar(250) COLLATE utf8_danish_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 
 --
 -- Data dump for tabellen `movies`
@@ -112,12 +106,11 @@ INSERT INTO `movies` (`movieName`, `movieDescription`, `movieId`, `movieRating`,
 --
 
 DROP TABLE IF EXISTS `movie_actor`;
-CREATE TABLE IF NOT EXISTS `movie_actor` (
+CREATE TABLE `movie_actor` (
   `movieId` int(11) NOT NULL,
   `actId` int(11) NOT NULL,
-  `movie_actor_id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`movie_actor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+  `movie_actor_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 
 --
 -- Data dump for tabellen `movie_actor`
@@ -169,12 +162,11 @@ INSERT INTO `movie_actor` (`movieId`, `actId`, `movie_actor_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `movie_director`;
-CREATE TABLE IF NOT EXISTS `movie_director` (
+CREATE TABLE `movie_director` (
   `movieId` int(11) NOT NULL,
   `dirId` int(11) NOT NULL,
-  `movie_director_id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`movie_director_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+  `movie_director_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 
 --
 -- Data dump for tabellen `movie_director`
@@ -205,12 +197,11 @@ INSERT INTO `movie_director` (`movieId`, `dirId`, `movie_director_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `movie_studio`;
-CREATE TABLE IF NOT EXISTS `movie_studio` (
+CREATE TABLE `movie_studio` (
   `movieId` int(11) NOT NULL,
   `studId` int(11) NOT NULL,
-  `movie_studio_id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`movie_studio_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+  `movie_studio_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 
 --
 -- Data dump for tabellen `movie_studio`
@@ -241,11 +232,10 @@ INSERT INTO `movie_studio` (`movieId`, `studId`, `movie_studio_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `studios`;
-CREATE TABLE IF NOT EXISTS `studios` (
-  `studId` int(11) NOT NULL AUTO_INCREMENT,
-  `studName` varchar(100) COLLATE utf8_danish_ci NOT NULL,
-  PRIMARY KEY (`studId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+CREATE TABLE `studios` (
+  `studId` int(11) NOT NULL,
+  `studName` varchar(100) COLLATE utf8_danish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 
 --
 -- Data dump for tabellen `studios`
@@ -255,8 +245,95 @@ INSERT INTO `studios` (`studId`, `studName`) VALUES
 (1, 'Warner Bros'),
 (2, 'Universal'),
 (3, 'Pixar Animation Studios');
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Begrænsninger for dumpede tabeller
+--
+
+--
+-- Indeks for tabel `actors`
+--
+ALTER TABLE `actors`
+  ADD PRIMARY KEY (`actId`);
+
+--
+-- Indeks for tabel `directors`
+--
+ALTER TABLE `directors`
+  ADD PRIMARY KEY (`dirId`);
+
+--
+-- Indeks for tabel `movies`
+--
+ALTER TABLE `movies`
+  ADD PRIMARY KEY (`movieId`);
+
+--
+-- Indeks for tabel `movie_actor`
+--
+ALTER TABLE `movie_actor`
+  ADD PRIMARY KEY (`movie_actor_id`);
+
+--
+-- Indeks for tabel `movie_director`
+--
+ALTER TABLE `movie_director`
+  ADD PRIMARY KEY (`movie_director_id`);
+
+--
+-- Indeks for tabel `movie_studio`
+--
+ALTER TABLE `movie_studio`
+  ADD PRIMARY KEY (`movie_studio_id`);
+
+--
+-- Indeks for tabel `studios`
+--
+ALTER TABLE `studios`
+  ADD PRIMARY KEY (`studId`);
+
+--
+-- Brug ikke AUTO_INCREMENT for slettede tabeller
+--
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `actors`
+--
+ALTER TABLE `actors`
+  MODIFY `actId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `directors`
+--
+ALTER TABLE `directors`
+  MODIFY `dirId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `movies`
+--
+ALTER TABLE `movies`
+  MODIFY `movieId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `movie_actor`
+--
+ALTER TABLE `movie_actor`
+  MODIFY `movie_actor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `movie_director`
+--
+ALTER TABLE `movie_director`
+  MODIFY `movie_director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `movie_studio`
+--
+ALTER TABLE `movie_studio`
+  MODIFY `movie_studio_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `studios`
+--
+ALTER TABLE `studios`
+  MODIFY `studId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
