@@ -154,3 +154,18 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+.customModal {
+  position: absolute;
+  top: 20%;
+  margin: auto;
+  display: none;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  padding: 2rem;
+  z-index: 100;
+}
+.show {
+  display: block !important;
+}

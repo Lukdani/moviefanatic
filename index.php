@@ -24,6 +24,21 @@
         <?php include "./includes/navbar.php"; ?>
         <?php include "./includes/addMovie.php"; ?>
 
+        <div id="addedMovieModal" class="customModal bg-success">
+            <div style="text-align:right;"><button class="btn btn-secondary" id="closeModalButton"><i
+                        class="fas fa-times"></i>
+                </button>
+            </div>
+            <h3>Movie added!</h3>
+            <p>Thank you so much for helping us add to our ever growing MovieFanatic &trade; movie database.
+                <br> As a token of our appreciation, you get the chance to win 2 blu-ray dvd's of James Camerons
+                2009 smash-hit "Avatar".
+                <br> All you need to do is enter your e-mail adress and your CPR-number, down below. Then you could
+                be the lucky winner of the 2 "blue"-ray copies
+                of the first movie in the Avatar cinematic universe.
+                <br> <i>"I see you Jake Sully"</i>
+            </p>
+        </div>
         <div id="movies"></div>
         <script type="module" src="./scripts/movie.js"></script>
 
@@ -40,6 +55,29 @@
         </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script>
+        const addedMovieModal = document.querySelector("#addedMovieModal");
+
+        const queryString = window.location.search;
+
+        if (queryString) {
+            const urlParams = new URLSearchParams(queryString);
+            const showModal = !!urlParams.get("showModal");
+
+            const hideModal = () => {
+                addedMovieModal.classList.remove("show");
+                window.history.pushState({}, document.title, window.location.pathname);
+            }
+
+            if (showModal) {
+                document.querySelector("#closeModalButton").addEventListener("click", hideModal)
+                addedMovieModal.classList.toggle("show");
+                setTimeout(() => {
+                    hideModal();
+                }, 7500);
+            }
+        }
         </script>
 
 

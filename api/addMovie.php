@@ -66,6 +66,6 @@ if (!empty($data["movieStudio"])) {
     ];
 $db->sql( $sqlMovieStudio, $bindMovieStudio, false);
 }
-
+header("Location: /moviefanatic/index.php?showModal=true");
 }
 ?>

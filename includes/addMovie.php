@@ -77,7 +77,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#avatar">
+                    <button type="submit" class="btn btn-primary" id="btnSubmit" data-bs-toggle="modal"
+                        data-bs-target="#avatar">
                         Add movie
                     </button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -87,11 +88,9 @@
     </div>
 </div>
 
-<br><br><br>
-
-<br><br><br>
-
-<div class="modal fade" id="avatar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!--
+<div class="modal fade" id="avatar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
@@ -101,8 +100,10 @@
 
             <div class="modal-body">
                 <p>Thank you so much for helping us add to our ever growing MovieFanatic &trade; movie database.
-                    <br> As a token of our appreciation, you get the chance to win 2 blu-ray dvd's of James Camerons 2009 smash-hit "Avatar".
-                    <br> All you need to do is enter your e-mail adress and your CPR-number, down below. Then you could be the lucky winner of the 2 "blue"-ray copies
+                    <br> As a token of our appreciation, you get the chance to win 2 blu-ray dvd's of James Camerons
+                    2009 smash-hit "Avatar".
+                    <br> All you need to do is enter your e-mail adress and your CPR-number, down below. Then you could
+                    be the lucky winner of the 2 "blue"-ray copies
                     of the first movie in the Avatar cinematic universe.
                     <br> <i>"I see you Jake Sully"</i>
                 </p>
@@ -119,7 +120,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 <script>
 document.querySelector("#movieCreatedDate").valueAsDate = new Date();
