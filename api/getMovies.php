@@ -51,7 +51,7 @@ if(!empty($movieYear)) {
     $binds[":movieYear"] = $movieYear;
 }
 
-if(!empty($movieRatedR) && $movieRatedR == "1" || $movieRatedR == "0") {
+if(!empty($movieRatedR) && ($movieRatedR == "1" || $movieRatedR == "0")) {
     $moviesQuery .= " WHERE movieRatedR = " . $movieRatedR;
      $binds[":movieRatedR"] = $movieRatedR;
 }
