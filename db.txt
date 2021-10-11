@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: localhost:8889
--- Genereringstid: 07. 10 2021 kl. 12:48:01
+-- Genereringstid: 11. 10 2021 kl. 07:13:43
 -- Serverversion: 5.7.32
 -- PHP-version: 7.4.12
 
@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 -- Struktur-dump for tabellen `actors`
 --
 
+DROP TABLE IF EXISTS `actors`;
 CREATE TABLE `actors` (
   `actId` int(11) NOT NULL,
   `actName` varchar(100) COLLATE utf8_danish_ci NOT NULL,
@@ -45,6 +46,7 @@ INSERT INTO `actors` (`actId`, `actName`, `actBirthday`, `actBorn`, `actActive`,
 -- Struktur-dump for tabellen `directors`
 --
 
+DROP TABLE IF EXISTS `directors`;
 CREATE TABLE `directors` (
   `dirId` int(11) NOT NULL,
   `dirName` varchar(100) COLLATE utf8_danish_ci NOT NULL,
@@ -65,6 +67,7 @@ INSERT INTO `directors` (`dirId`, `dirName`, `dirBirthday`) VALUES
 -- Struktur-dump for tabellen `movies`
 --
 
+DROP TABLE IF EXISTS `movies`;
 CREATE TABLE `movies` (
   `movieName` varchar(100) COLLATE utf8_danish_ci NOT NULL,
   `movieDescription` text COLLATE utf8_danish_ci,
@@ -86,7 +89,9 @@ CREATE TABLE `movies` (
 INSERT INTO `movies` (`movieName`, `movieDescription`, `movieId`, `movieRating`, `movieActors`, `movieCreatedDate`, `movieDirector`, `movieRatings`, `movieRatedR`, `movieStudio`, `movieImg`) VALUES
 ('Gladiator', '<p>Good film!</p>', 135, NULL, NULL, '2021-10-06 00:00:00', NULL, NULL, 0, NULL, 'gladiator.jpeg'),
 ('Titanic', '<p>A big boat</p>', 136, NULL, NULL, '2021-10-06 00:00:00', NULL, NULL, 0, NULL, 'titanic.jpeg'),
-('Pulp Fiction', '<p>Say \"what?\" one more time!</p>', 141, NULL, NULL, '2021-10-06 00:00:00', NULL, NULL, 0, NULL, 'pulpfiction.jpeg');
+('Pulp Fiction', '<p>Say \"what?\" one more time!</p>', 141, NULL, NULL, '2021-10-06 00:00:00', NULL, NULL, 0, NULL, 'pulpfiction.jpeg'),
+('Test film', 'God film', 190, NULL, NULL, '2021-10-10 00:00:00', NULL, NULL, 1, NULL, 'person.jpg'),
+('test film', '', 191, NULL, NULL, '2021-10-10 00:00:00', NULL, NULL, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -94,6 +99,7 @@ INSERT INTO `movies` (`movieName`, `movieDescription`, `movieId`, `movieRating`,
 -- Struktur-dump for tabellen `movie_actor`
 --
 
+DROP TABLE IF EXISTS `movie_actor`;
 CREATE TABLE `movie_actor` (
   `movieId` int(11) NOT NULL,
   `actId` int(11) NOT NULL,
@@ -121,7 +127,18 @@ INSERT INTO `movie_actor` (`movieId`, `actId`, `movie_actor_id`) VALUES
 (140, 1, 48),
 (140, 3, 49),
 (141, 1, 50),
-(141, 3, 51);
+(141, 3, 51),
+(143, 1, 52),
+(143, 2, 53),
+(143, 3, 54),
+(144, 1, 55),
+(144, 2, 56),
+(144, 3, 57),
+(190, 1, 70),
+(190, 2, 71),
+(190, 3, 72),
+(191, 2, 73),
+(191, 3, 74);
 
 -- --------------------------------------------------------
 
@@ -129,6 +146,7 @@ INSERT INTO `movie_actor` (`movieId`, `actId`, `movie_actor_id`) VALUES
 -- Struktur-dump for tabellen `movie_director`
 --
 
+DROP TABLE IF EXISTS `movie_director`;
 CREATE TABLE `movie_director` (
   `movieId` int(11) NOT NULL,
   `dirId` int(11) NOT NULL,
@@ -147,7 +165,10 @@ INSERT INTO `movie_director` (`movieId`, `dirId`, `movie_director_id`) VALUES
 (138, 1, 11),
 (139, 1, 12),
 (140, 1, 13),
-(141, 1, 14);
+(141, 1, 14),
+(143, 1, 15),
+(144, 1, 16),
+(191, 1, 17);
 
 -- --------------------------------------------------------
 
@@ -155,6 +176,7 @@ INSERT INTO `movie_director` (`movieId`, `dirId`, `movie_director_id`) VALUES
 -- Struktur-dump for tabellen `movie_studio`
 --
 
+DROP TABLE IF EXISTS `movie_studio`;
 CREATE TABLE `movie_studio` (
   `movieId` int(11) NOT NULL,
   `studId` int(11) NOT NULL,
@@ -173,7 +195,10 @@ INSERT INTO `movie_studio` (`movieId`, `studId`, `movie_studio_id`) VALUES
 (138, 2, 10),
 (139, 2, 11),
 (140, 2, 12),
-(141, 2, 13);
+(141, 2, 13),
+(143, 1, 14),
+(144, 1, 15),
+(191, 1, 16);
 
 -- --------------------------------------------------------
 
@@ -181,6 +206,7 @@ INSERT INTO `movie_studio` (`movieId`, `studId`, `movie_studio_id`) VALUES
 -- Struktur-dump for tabellen `studios`
 --
 
+DROP TABLE IF EXISTS `studios`;
 CREATE TABLE `studios` (
   `studId` int(11) NOT NULL,
   `studName` varchar(100) COLLATE utf8_danish_ci NOT NULL
@@ -261,25 +287,25 @@ ALTER TABLE `directors`
 -- Tilføj AUTO_INCREMENT i tabel `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `movieId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `movieId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `movie_actor`
 --
 ALTER TABLE `movie_actor`
-  MODIFY `movie_actor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `movie_actor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `movie_director`
 --
 ALTER TABLE `movie_director`
-  MODIFY `movie_director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `movie_director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `movie_studio`
 --
 ALTER TABLE `movie_studio`
-  MODIFY `movie_studio_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `movie_studio_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `studios`
