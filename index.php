@@ -33,13 +33,19 @@
             <p>Thank you so much for helping us add to our ever growing MovieFanatic &trade; movie database.
                 <br> As a token of our appreciation, you get the chance to win 2 blu-ray dvd's of James Camerons
                 2009 smash-hit "Avatar".
-                <br> All you need to do is enter your e-mail adress and your CPR-number, down below. Then you could
+                <br><br> All you need to do is enter your e-mail adress and your CPR-number, down below. Then you could
                 be the lucky winner of the 2 "blue"-ray copies
                 of the first movie in the Avatar cinematic universe.
-                <br> <i>"I see you Jake Sully"</i>
+                <br><br> <i>"I see you Jake Sully"</i>
             </p>
-            <button type="button" class="btn btn-primary">Submit to win Avatar on blu-ray</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <label for="modal-mail" class="form-label">Your e-mail</label>
+            <input type="email" class="form-control" id="modal-mail" placeholder="e.g. luka7647@edu.easj.dk">
+            <br><br>
+            <label for="modal-cpr" class="form-label">Your CPR-number</label>
+            <input type="number" class="form-control" id="modal-cpr" placeholder="e.g. 231045-0637">
+            <br><br>
+            <button type="button" class="btn btn-primary" id="sub">Submit to win Avatar on blu-ray</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="shut">Close</button>
         </div>
         <div id="movies"></div>
         <script type="module" src="./scripts/movie.js"></script>
@@ -77,9 +83,21 @@
                 addedMovieModal.classList.toggle("show");
                 setTimeout(() => {
                     hideModal();
-                }, 7500);
+                }, 120000);
             }
         }
+
+        const byeModal = () => {
+            addedMovieModal.classList.remove("show");
+            window.history.pushState({}, document.title, window.location.pathname);
+        }
+
+        document.querySelector("#sub").addEventListener("click", byeModal)
+        addedMovieModal.classList.toggle("show");
+
+        document.querySelector("#shut").addEventListener("click", byeModal)
+        addedMovieModal.classList.toggle("show");
+
         </script>
 
 

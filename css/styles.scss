@@ -156,7 +156,7 @@ button {
 }
 
 .customModal {
-  position: absolute;
+  position: fixed;
   top: 20%;
   margin: auto;
   display: none;
@@ -165,6 +165,7 @@ button {
   text-align: center;
   padding: 2rem;
   z-index: 100;
+  width: 40vw;
 }
 .show {
   display: block !important;
