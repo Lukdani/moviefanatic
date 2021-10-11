@@ -16,7 +16,7 @@ if (!empty($movieImg)) {
     }
 
     $ratedRBool = 0;
-    if ($data["movieRatedR"] == true)
+    if (!empty($data["movieRatedR"]) && $data["movieRatedR"] == true)
     {
         $ratedRBool = 1;
     }
@@ -42,7 +42,7 @@ foreach ($data["movieActors"] as $actor) {
 
     $bindActor = [
         ":movieId" =>$createdMovie[0]->movieId, 
-        ":actId" => $actor["actId"],
+        ":actId" => $actor,
     ];
 $db->sql( $sqlMovieActor, $bindActor, false);
 }
@@ -69,12 +69,3 @@ $db->sql( $sqlMovieStudio, $bindMovieStudio, false);
 
 }
 ?>
-
-<script>
-    function Congratz(){
-        alert("Tillykke! Du har tilføjet en film, og er den heldige vinder af et iTunes gavekort på 10'000,- kr.");
-    }
-    Congratz();
-
-    document.location = '/moviefanatic/index.php';
-</script>
