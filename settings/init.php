@@ -5,10 +5,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/moviefanatic/classes/classDB.php";
 define("CONFIG_LIVE", "0"); // 0: Test enviroment || 1: Live enviroment
 
 if(CONFIG_LIVE == 0){
-    $DB_SERVER = "localhost";
-    $DB_NAME = "moviefanatic";
-    $DB_USER = "root";
-    $DB_PASS = "";
+    $DB_SERVER = "astelun.com.mysql:3306";
+    $DB_NAME = "astelun_com_moviefanatic";
+    $DB_USER = "astelun_com_moviefanatic";
+    $DB_PASS = "rootitoot";
 }else{
     $DB_SERVER = "";
     $DB_NAME = "";
