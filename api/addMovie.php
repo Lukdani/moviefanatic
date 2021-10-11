@@ -16,7 +16,7 @@ if (!empty($movieImg)) {
     }
 
     $ratedRBool = 0;
-    if (!empty($data["movieRatedR"]) && $data["movieRatedR"] == true)
+    if (!empty($data["movieRatedR"]) && $data["movieRatedR"] == '1')
     {
         $ratedRBool = 1;
     }
