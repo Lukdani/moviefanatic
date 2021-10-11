@@ -38,6 +38,8 @@
                 of the first movie in the Avatar cinematic universe.
                 <br> <i>"I see you Jake Sully"</i>
             </p>
+            <button type="button" class="btn btn-primary">Submit to win Avatar on blu-ray</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
         <div id="movies"></div>
         <script type="module" src="./scripts/movie.js"></script>
